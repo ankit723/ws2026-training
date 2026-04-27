@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Owner {
+  id  String @id  @default(uuid())
+  name  String
+  email String
+  phone String
+
+  comapanies  Company[]
+}
+
+model Contact {
+  id  String @id  @default(uuid())
+  name  String
+  email String
+  phone String
+
+  comapanies  Company[]
+}
+
+
+model Company{
+  id  String @id @default(uuid())
+  name  String
+  address String
+  tel_number  String
+  email String
+  active  Boolean
+  
+  owner_id  String
+  owner Owner @relation(fields: [owner_id], references: [id])
+
+  contact_id  String
+  contact Contact @relation(fields: [contact_id], references: [id])
+
+  products  Product[]
+}
+
+model Product {
+  gtin  String  @id
+  name  String
+  french_name String
+  description String
+  french_description String
+  brand String
+  origin  String
+  gross_weight  Float
+  content_weight Float
+  unit_weight Float
+  hidden  Boolean @default(false)
+
+  company_id  String
+  company Company @relation(fields: [company_id], references: [id])
+}
