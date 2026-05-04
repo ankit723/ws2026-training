@@ -1,6 +1,7 @@
 'use client'
 
 import Image from "next/image"
+import Link from "next/link"
 
 export const EssentialInfo = () =>{
     return(
@@ -17,11 +18,11 @@ export const EssentialInfo = () =>{
                     <p className="flex items-center gap-3"><Image src="/media_files/icons/icon-globe.svg" alt="icon" width={20} height={20}/> info@example.com </p>
                     <p className="flex items-center gap-3"><Image src="/media_files/icons/icon-globe.svg" alt="icon" width={20} height={20}/> example.com</p>
 
-                    <button className="bg-blue-950 text-white p-2 rounded-full" onClick={()=>{
+                    <button className="bg-blue-950 text-white p-2 w-40 rounded-full" onClick={()=>{
                         const utt = new SpeechSynthesisUtterance("Taiwan Tourism Bureau: Phone plus eight eight six dash two dash zero zero zero zero dash zero zero zero zero. Email info at example dot com. Official site at example dot com. For urgent help, dial zero zero zero for police or zero zero zero for emergencies.")
                         window.speechSynthesis.speak(utt)
                     }}>Read Aloud</button>
-                    <button  className="bg-blue-950 text-white p-2 rounded-full" onClick={()=>{
+                    <button  className="bg-blue-950 text-white p-2 w-40 rounded-full" onClick={()=>{
                         window.speechSynthesis.cancel()
                     }}>Stop Reading</button>
                 </div>
@@ -56,7 +57,7 @@ export const EssentialInfo = () =>{
                 <p className="mt-3 text-xl">Comprehensive PDF guide with maps, itineraries, and essential tips for your Taiwan adventure.
                 Download Travel Guide (PDF)</p>
 
-                <button className="bg-green-400 text-white w-60 p-2.5 rounded-full cursor-pointer hover:bg-green-500 hover:scale-105 active:scale-95 transition-all mt-10">Download Now {"->"}</button>
+                <Link href={"/media_files/pdf/taiwan-travel-guide.pdf"} download={true} className="text-center bg-green-400 text-white w-60 p-2.5 rounded-full cursor-pointer hover:bg-green-500 hover:scale-105 active:scale-95 transition-all mt-10">Download Now {"->"}</Link>
             </div>
 
         </div>

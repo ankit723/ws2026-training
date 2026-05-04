@@ -1,3 +1,4 @@
+import { Footer } from "@/components/footer";
 import { ContactForm } from "@/components/main/contactForm";
 import { Culture } from "@/components/main/culture";
 import { EssentialInfo } from "@/components/main/essentialInfo";
@@ -17,11 +18,22 @@ export default function Home() {
         </div>
       </div>
 
-      <RegionalGuide />
-      <Culture />
-      <PracticalInformation />
-      <EssentialInfo />
-      <ContactForm />
+      <div id="regional-guide">
+        <RegionalGuide />
+      </div>
+      <div id="experiences">
+        <Culture />
+      </div>
+      <div id="practical-information">
+        <PracticalInformation />
+      </div>
+      <div id="essential-information">
+        <EssentialInfo />
+      </div>
+      <div id="contact">
+        <ContactForm />
+      </div>
+      <Footer />
     </div>
   );
 }

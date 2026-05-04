@@ -2,9 +2,8 @@ import prisma from "@/lib/prisma"
 
 export const ContactForm = ()=>{
 
-    const onSubmit = async(e: SubmitEvent, formData: FormData) => {
+    const onSubmit = async(formData: FormData) => {
         'use server'
-        e.preventDefault
 
         const name = formData.get("name") as string
         const email = formData.get("email") as string
@@ -12,9 +11,9 @@ export const ContactForm = ()=>{
         const intrests = formData.get("intrests") as string
         const message = formData.get("message") as string
 
-        if(!name || !email || !country || !country || !intrests || !message) return "Please enter all fields"
+        if(!name || !email || !country || !country || !intrests || !message) return 
 
-        if(name.length<3) return "Name Not Correct"
+        if(name.length<3) return
 
         const contact = await prisma.contact.create({
             data: {
@@ -22,7 +21,6 @@ export const ContactForm = ()=>{
             }
         })
 
-        return contact
     }
         
     
