@@ -4,15 +4,15 @@ import { useState } from "react";
 import { PhotoSlider } from "../photo-slider";
 
 const cultureImages = [
-    {image: "/media_files/images/cultural-1.jpg", title: "Temple Etiquette Walk", desc: "Learn incense rituals, fortune sticks, and local customs."},
-    {image: "/media_files/images/cultural-2.jpg", title: "Aboriginal Crafts", desc: "Textiles & woodcrafts with indigenous artisans."},
-    {image: "/media_files/images/cultural-3.jpg", title: "Tea Ceremony in Alishan", desc: "Savor high-mountain oolongs and brewing technique."}
+    {image: "/03_module_d/media_files/images/cultural-1.jpg", title: "Temple Etiquette Walk", desc: "Learn incense rituals, fortune sticks, and local customs."},
+    {image: "/03_module_d/media_files/images/cultural-2.jpg", title: "Aboriginal Crafts", desc: "Textiles & woodcrafts with indigenous artisans."},
+    {image: "/03_module_d/media_files/images/cultural-3.jpg", title: "Tea Ceremony in Alishan", desc: "Savor high-mountain oolongs and brewing technique."}
 ]
 
 const culinaryImages = [
-    {image: "/media_files/images/culinary-1.jpg", title: "Night Market Tasting", desc: "Stinky tofu, bubble tea, oyster omelets & more."},
-    {image: "/media_files/images/culinary-2.jpg", title: "Sea-to-Table in Hualien", desc: "Fresh catch, coastal views, local recipes."},
-    {image: "/media_files/images/culinary-3.jpg", title: "Pineapple Cake Workshop", desc: "Bake iconic treats to bring home."}
+    {image: "/03_module_d/media_files/images/culinary-1.jpg", title: "Night Market Tasting", desc: "Stinky tofu, bubble tea, oyster omelets & more."},
+    {image: "/03_module_d/media_files/images/culinary-2.jpg", title: "Sea-to-Table in Hualien", desc: "Fresh catch, coastal views, local recipes."},
+    {image: "/03_module_d/media_files/images/culinary-3.jpg", title: "Pineapple Cake Workshop", desc: "Bake iconic treats to bring home."}
 ]
 
 export const Culture = () =>{

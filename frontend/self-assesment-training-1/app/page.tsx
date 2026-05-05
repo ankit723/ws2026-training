@@ -9,7 +9,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="w-screen min-h-screen">
-      <div className="hero w-full h-[91vh] flex items-center    " style={{backgroundImage: "url('/media_files/images/taiwan-cover.jpg')", backgroundPosition: "center ", backgroundSize: "cover"}}>
+      <div className="hero w-full h-[91vh] flex items-center    " style={{backgroundImage: "url('/03_module_d/media_files/images/taiwan-cover.jpg')", backgroundPosition: "center ", backgroundSize: "cover"}}>
         <div className="absolute inset-0 w-screen h-[91vh] bg-black/30 z-1"></div>
         <div className="z-10 container mx-auto flex flex-col items-start gap-5 mt-36">
             <h1 className="text-5xl text-white font-bold">Taiwan: Small Island, Big Adventures</h1>

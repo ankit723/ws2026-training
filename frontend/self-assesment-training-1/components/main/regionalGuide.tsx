@@ -12,7 +12,7 @@ export const RegionalGuide = async()=>{
 
             <div className="grid grid-cols-1 lg:grid-cols-2">
                 <div className="w-full flex justify-center items-center" >
-                    <Image src={"/media_files/images/taiwan-map.svg"} alt="map" width={600} height={100}/>
+                    <Image src={"/03_module_d/media_files/images/taiwan-map.svg"} alt="map" width={600} height={100}/>
                 </div>
 
                 <div className="w-full h-fit grid grid-cols-1 lg:grid-cols-2 gap-5">
