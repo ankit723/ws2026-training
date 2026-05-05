@@ -12,44 +12,43 @@ datasource db {
   provider = "postgresql"
 }
 
-
 model Regions {
-  id  String  @id  @default(uuid())
-  key String
-  name  String
-  color String
-  summary String
+  id          String        @id @default(uuid())
+  key         String
+  name        String
+  color       String
+  summary     String
   attractions Attractions[]
 }
 
 model Attractions {
-  id  String @id  @default(uuid())
-  name String
+  id          String  @id @default(uuid())
+  regionId    String
+  name        String
   description String
-  regionId  String
-  region  Regions @relation(fields: [regionId], references: [id])
+  region      Regions @relation(fields: [regionId], references: [id])
 }
 
 model Contact {
-  id  String @id  @default(uuid())
-  name String
-  email String
-  country String
-  interests String
-  message String
-  submitted_at  DateTime  @default(now())
+  id           String   @id @default(uuid())
+  name         String
+  email        String
+  country      String
+  interests    String
+  message      String
+  submitted_at DateTime @default(now())
 }
 
 enum Category {
-  TRANSPORTATION
-  ACCOMODATION
-  SHOPPING
+  transportation
+  accomodation
+  shopping
 }
 
 model InfoItems {
-  id  String @id  @default(uuid())
-  icon  String
-  title String
-  body  String
-  category  Category
+  id       String   @id @default(uuid())
+  body     String
+  category Category
+  icon     String
+  title    String
 }
