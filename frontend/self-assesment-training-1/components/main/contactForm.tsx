@@ -22,13 +22,13 @@ export const ContactForm = ()=>{
             <h1 className="text-3xl font-bold ">Travel Consultation</h1>
             <p className="mt-6 text-xl">Get personalized recommendations for your Taiwan adventure.</p>
             
-            <div className="w-full flex justify">
-                    <form className= "grid grid-cols-1 lg:grid-cols-2" action={onClick}>
+            <div className="w-full flex justify-center">
+                <form className= "grid grid-cols-1" action={onClick}>
                     <div className="flex flex-col gap-2 w-full ">
                         <label htmlFor="name" className="font-bold">Name</label>
                         <input type="text" name="name" placeholder="Enter your name" className="border p-2 rounded-lg"/>
                     </div>
-                    <div className="flex flex-col gap-2 w-full ml-20">
+                    <div className="flex flex-col gap-2 w-full">
                         <label htmlFor="email" className="font-bold">Email</label>
                         <input type="email" name="email" placeholder="Enter your email" className="border p-2 rounded-lg"/>
                     </div>
@@ -36,9 +36,9 @@ export const ContactForm = ()=>{
                         <label htmlFor="country" className="font-bold">Country</label>
                         <input type="country" name="country" placeholder="Where are you based ?"className="border p-2 rounded-lg" />
                     </div>
-                    <div className="flex flex-col gap-2 w-full ml-20">
+                    <div className="flex flex-col gap-2 w-full">
                         <label htmlFor="interests" className="font-bold">Intrest</label>
-                        <input type="text" name="intrests" placeholder="Culture, food, nature, beaches.."className="border p-2 rounded-lg" />
+                        <input type="text" name="intrests" placeholder="Culture, food, nature, beaches.." className="border p-2 rounded-lg" />
                     </div>
                     <div className="flex flex-col gap-2 w-full">
                         <label htmlFor="message" className="font-bold">Name</label>

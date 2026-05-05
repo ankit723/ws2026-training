@@ -2,6 +2,12 @@
 
 import prisma from "./prisma"
 
+
+export const getRegAndAtt = async()=>{
+    const regions = await prisma.regions.findMany({include: {attractions: true}})
+    return regions
+}
+
 export const getInfor=async()=>{
     const info = await prisma.infoItems.findMany({})
     return info

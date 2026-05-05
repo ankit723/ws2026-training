@@ -21,9 +21,9 @@ export const Culture = () =>{
     const [currentCulinary, setCurrentCulinary] = useState(0)
     return (
         <div className="w-full bg-white container mx-auto my-20">
-            <div className="flex items-center justify-between my-20">
+            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between my-20 ">
                 <h1 className="text-3xl font-bold ">Culture & Culinary Expereinces</h1>
-                <div className="w-40 rounded-full bg-blue-950 grid grid-cols-2 text-center text-white font-bold">
+                <div className="w-40 rounded-full bg-blue-950 grid grid-cols-2 text-center text-white font-bold lg:mt-0 mt-4">
                     <p className="w-full h-full p-2 " style={{backgroundColor: isCulture?"white":"", color: isCulture? "black":""}} onClick={()=>setIsCulture(false)}>Culinary</p>
                     <p className="w-full h-full p-2 " style={{backgroundColor: !isCulture?"white":"", color: !isCulture? "black":""}} onClick={()=>setIsCulture(true)}>Culture</p>
                 </div>
