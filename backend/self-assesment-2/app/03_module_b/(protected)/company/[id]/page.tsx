@@ -12,7 +12,7 @@ export default async function Page({params}:{params:Promise<{id: string}>}) {
         redirect("/03_module_b/company")
     }
 
-        const deactivateProduct = async (gtin: BigInt) => {
+        const deactivateProduct = async (gtin: bigint) => {
             "use server";
 
             await prisma.product.update({
@@ -38,9 +38,11 @@ export default async function Page({params}:{params:Promise<{id: string}>}) {
         <div className="">
             <h1 className="text-3xl font-bold">Company Details</h1>
             <Link className="text-2xl font-bold" href={"/03_module_b/product/new"}>New</Link>
-            {Object.keys(company).map((c)=>(
-                c!=="products" && (
-                    <p>{c} - {JSON.stringify(company[c])}</p>
+            {(Object.keys(company) as (keyof typeof company)[]).map((c) => (
+                c !== "products" && (
+                    <p key={c}>
+                    {c} - {JSON.stringify(company[c])}
+                    </p>
                 )
             ))}
             

@@ -13,11 +13,13 @@ export default async function Page({params}:{params:Promise<{gtin: bigint}>}){
     return (
         <div className="w-screen h-screen flex flex-col items-center justify-center">
             <Image width={200} height={200} src={product.imageUrl || ""} alt=""/>
-            {Object.keys(product).map(p=>(
-                p!=="company" && (
-                    <p key={p}>{p} - {product[p]}</p>
+            {(Object.keys(product) as (keyof typeof product)[]).map((c) => (
+                c !== "company" && (
+                    <p key={c}>
+                    {c} - {JSON.stringify(product[c])}
+                    </p>
                 )
-            ))}
+                ))}
         </div>
     )
 }
