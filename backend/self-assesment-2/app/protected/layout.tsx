@@ -6,7 +6,7 @@ export default async function ProtectedLayout({children}:{children: React.ReactN
     const cookieStore = await cookies()
     const token = cookieStore.get("token")?.value
     if(!token || token!=="admin"){
-        redirect("/03_module_b/unauthorized")
+        redirect("/protected/unauthorized")
     }
     return(
         <div className="">{children}</div>

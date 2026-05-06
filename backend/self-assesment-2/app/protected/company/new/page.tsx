@@ -27,7 +27,7 @@ export default async function Page() {
                 }
             }
         })
-        redirect("/03_module_b/company")
+        redirect("/protected/company")
         revalidatePath("/")
     }
     return(
