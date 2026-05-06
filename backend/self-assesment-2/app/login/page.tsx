@@ -3,7 +3,7 @@ import { redirect } from "next/navigation"
 
 export default async function Login(){
     const token = (await cookies()).get("token")?.value
-    if(token && token === "admin") redirect("/protected")
+    if(token && token === "admin") redirect("/03_module_b/protected")
     const onSubmit = async (formData: FormData)=>{
         'use server'
         const cookieStore = await cookies()
@@ -16,7 +16,7 @@ export default async function Login(){
                 sameSite: "lax",
                 secure: false
             })
-            return redirect("/protected")
+            return redirect("/03_module_b/protected")
         }
         return redirect("/unauthorized")
     }

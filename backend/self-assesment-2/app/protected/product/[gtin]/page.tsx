@@ -8,7 +8,7 @@ export default async function Page({params}:{params:Promise<{gtin: bigint}>}){
     const product = await prisma.product.findUnique({where: {gtin}, include: {company: true}})
     console.log("prods", product)
 
-    if(!product) redirect("/protected/product")
+    if(!product) redirect("/03_module_b/protected/product")
     console.log(product)
     return (
         <div className="w-screen h-screen flex flex-col items-center justify-center">

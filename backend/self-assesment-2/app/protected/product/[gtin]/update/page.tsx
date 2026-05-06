@@ -27,8 +27,8 @@ export default async function Page({params}: {params: Promise<{gtin: bigint}>}) 
             }   
         })
 
-        revalidatePath("/protected/product")
-        redirect("/protected/product")
+        revalidatePath("/03_module_b/protected/product")
+        redirect("/03_module_b/protected/product")
 
 
     }

@@ -5,7 +5,7 @@ import { redirect } from "next/navigation"
 export default async function Page({params}: {params: Promise<{id: string}>}) {
     const {id} = await params
     const company = await prisma.company.findUnique({where:{id}, include: {owner: true, contact: true}})
-    if(!company) redirect("/protected/company")
+    if(!company) redirect("/03_module_b/protected/company")
     const upadateCompany = async(formData: FormData) =>{
         'use server'
         const company = await prisma.company.update({
@@ -31,7 +31,7 @@ export default async function Page({params}: {params: Promise<{id: string}>}) {
                 }
             }
         })
-        redirect("/protected/company")
+        redirect("/03_module_b/protected/company")
         revalidatePath("/")
     }
     return(
