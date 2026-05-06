@@ -1,0 +1,80 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+
+enum Role{
+  user
+  Admin
+}
+
+model User{
+  id  Int @id  @default(autoincrement())
+  username  String @unique
+  email String  @unique
+  role  Role  @default(Admin)
+  token String?
+  password  String
+
+  albums  Album[]
+ 
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  isBan Boolean @default(false)
+
+  @@index([username, email])
+}
+
+model Album {
+  album_id  Int @id  @default(autoincrement())
+  title String
+  artist  String
+  release_year  Int
+  genre String
+  description String
+
+  publisher_id Int
+  publisher  User @relation(fields: [publisher_id], references: [id])
+
+  songs Song[]
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+}
+
+model Label {
+  label_id  Int @id @default(autoincrement())
+  name  String
+  songs Song[]
+}
+
+
+model Song {
+  song_id  Int @id  @default(autoincrement())
+  title String
+  duration_seconds  Int
+  
+  label_id  Int
+  label Label @relation(fields: [label_id], references: [label_id])
+  lyrics  String
+  cover_image String?
+  isCover Boolean @default(false)
+
+  album_id  Int
+  album Album @relation(fields: [album_id], references: [album_id])
+
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+}
+
+
