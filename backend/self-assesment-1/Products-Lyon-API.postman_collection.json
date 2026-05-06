@@ -1,0 +1,363 @@
+{
+  "info": {
+    "_postman_id": "8cf89182-21c7-4681-a72b-c6df6d46b8df",
+    "name": "Products-Lyon-API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "40627849",
+    "_collection_link": "https://go.postman.co/collection/40627849-8cf89182-21c7-4681-a72b-c6df6d46b8df?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Login",
+      "item": [
+        {
+          "name": "Login using passphrase",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"passphrase\": \"admin\"\r\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Company",
+      "item": [
+        {
+          "name": "Get All Companies",
+          "item": [
+            {
+              "name": "Get all companies",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/company",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "company"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Get company by id",
+          "item": [
+            {
+              "name": "Get company by Id",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/company/d12dda20-ae4c-4d4e-9bcb-d26b589de8cc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "company",
+                    "d12dda20-ae4c-4d4e-9bcb-d26b589de8cc"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Update company by id",
+          "item": [
+            {
+              "name": "Update company by Id",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Tech Morphers\",\r\n    \"email\": \"ankit@techmorphers.com\",\r\n    \"phone\": \"9795786303\",\r\n    \"address\": \"Hadapsar, Pune and Bhelupur, Varanasi\",\r\n    \"owner_name\": \"Tech Morphers\",\r\n    \"owner_email\": \"ankit@techmorphers.com\",\r\n    \"owner_phone\": \"9795786303\",\r\n    \"contact_name\": \"Tech Morphers\",\r\n    \"contact_email\": \"ankit@techmorphers.com\",\r\n    \"contact_phone\": \"9795786303\"\r\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/company/d12dda20-ae4c-4d4e-9bcb-d26b589de8cc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "company",
+                    "d12dda20-ae4c-4d4e-9bcb-d26b589de8cc"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Create Company",
+          "item": [
+            {
+              "name": "Create Company",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Tech Morphers\",\r\n    \"email\": \"ankit@techmorphers.com\",\r\n    \"phone\": \"9795786303\",\r\n    \"address\": \"Hadapsar, Pune\",\r\n    \"owner_name\": \"Tech Morphers\",\r\n    \"owner_email\": \"ankit@techmorphers.com\",\r\n    \"owner_phone\": \"9795786303\",\r\n    \"contact_name\": \"Tech Morphers\",\r\n    \"contact_email\": \"ankit@techmorphers.com\",\r\n    \"contact_phone\": \"9795786303\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/company",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "company"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Update Status of Company",
+          "item": [
+            {
+              "name": "Update company status",
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/company/d12dda20-ae4c-4d4e-9bcb-d26b589de8cc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "company",
+                    "d12dda20-ae4c-4d4e-9bcb-d26b589de8cc"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Product",
+      "item": [
+        {
+          "name": "Get product by id",
+          "item": [
+            {
+              "name": "Get product by Id",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/product/12345678901646",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "product",
+                    "12345678901646"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Create Product",
+          "item": [
+            {
+              "name": "Create Product",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"gtin\": \"12345678901646\",\r\n    \"name\": \"Tech Morphers\",\r\n    \"french_name\": \"Tonko Morpho\",\r\n    \"description\": \"gregregreh \\n gergergreger \\n gergerg\",\r\n    \"french_description\": \"gregregreh \\n gergergreger \\n gergerg\",\r\n    \"brand_name\": \"tech Morphers\",\r\n    \"country\": \"India\",\r\n    \"p_weight\": \"1.5\",\r\n    \"g_weight\": \"1.5\",\r\n    \"n_weight\": \"1.5\",\r\n    \"companyId\": \"d12dda20-ae4c-4d4e-9bcb-d26b589de8cc\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/product",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "product"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Update Status of Product",
+          "item": [
+            {
+              "name": "Update product status",
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/product/12345678901646",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "product",
+                    "12345678901646"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Public Facing APIs",
+      "item": [
+        {
+          "name": "Filter based Products JSON API",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/03_module_b/products.json?query=ton",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "03_module_b",
+                "products.json"
+              ],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "ton"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Single Product using GTIN API",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/03_module_b/products/1234567890123.json",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "03_module_b",
+                "products",
+                "1234567890123.json"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Verify APIs",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ids\": \"1234567890123 \\n 12345678901234 \\n 123456789012345\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/verify",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "verify"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000/03_module_b/api"
+    }
+  ]
+}
