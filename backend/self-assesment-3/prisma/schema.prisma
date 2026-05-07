@@ -63,12 +63,15 @@ model Song {
   song_id  Int @id  @default(autoincrement())
   title String
   duration_seconds  Int
-  
-  label_id  Int
-  label Label @relation(fields: [label_id], references: [label_id])
+
+  label Label []
   lyrics  String
   cover_image String?
   isCover Boolean @default(false)
+
+  order Int
+
+  view_count Int
 
   album_id  Int
   album Album @relation(fields: [album_id], references: [album_id])

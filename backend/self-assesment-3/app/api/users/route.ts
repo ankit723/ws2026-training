@@ -9,7 +9,7 @@ export async function GET(req: NextRequest){
     const cursor = searchParams.get("cursor") as string
 
     const {status, user} = await checkUser(req, true)
-    if(!status || !user) return NextResponse.json({message: "Unauthorized"}, {status: 401})
+    if(!status || !user) return NextResponse.json({message: "Admin access required"}, {status: 401})
 
     console.log("limit, cursor")
     
