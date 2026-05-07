@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+.masked{
+  width: 400px;
+  height: 500px;
+
+  background-image: url("/landscape.jpeg");
+  background-size: cover;
+  background-position: center;
+
+  mask-image: url("/human.png");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
