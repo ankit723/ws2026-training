@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Color Wheel</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    width:100vw;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    gap:20px;
+}
+
+.wrapper{
+    position:relative;
+}
+
+canvas{
+    border:2px solid black;
+}
+
+#mouse{
+    position:absolute;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    border:3px solid black;
+    pointer-events:none;
+    transform:translate(-50%, -50%);
+}
+
+#color{
+    font-size:30px;
+    font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+    <input type="range" id="brightness" min="0" max="100" value="100" />
+    <div class="wrapper">
+
+        <canvas id="canvas"></canvas>
+
+        <div id="mouse"></div>
+
+    </div>
+
+    <p id="color">Color</p>
+
+    <script>
+
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+
+    const mouse = document.getElementById("mouse");
+    const colorText = document.getElementById("color");
+
+    const selectedColor = {}
+
+    const brightness = document.getElementById("brightness");
+
+    brightness.addEventListener("input", updateColor);
+
+    canvas.width = 600;
+    canvas.height = 400;
+
+    const img = new Image();
+
+    let isClicked = false;
+
+    img.src = "./resource/color-wheel.png";
+
+    img.onload = ()=>{
+
+        ctx.drawImage(img, 0, 0, 500, 400);
+
+    };
+
+    canvas.addEventListener("mousemove", (e)=>{
+
+        if(isClicked) return;
+
+        const rect = canvas.getBoundingClientRect();
+
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        mouse.style.left = x + "px";
+        mouse.style.top = y + "px";
+
+        const pixel = ctx.getImageData(x, y, 1, 1).data;
+
+        if(pixel[3] === 0) return;
+
+        const r = pixel[0];
+        const g = pixel[1];
+        const b = pixel[2];
+
+        const hex = rgbToHex(r,g,b);
+
+        colorText.innerText = hex;
+        colorText.style.color=hex
+
+    });
+
+    canvas.addEventListener("click", (e)=>{
+
+        isClicked= !isClicked
+        const rect = canvas.getBoundingClientRect();
+
+        const x = Math.floor(e.clientX - rect.left);
+        const y = Math.floor(e.clientY - rect.top);
+
+        const pixel = ctx.getImageData(x, y, 1, 1).data;
+
+        if(pixel[3] === 0) return;
+
+        const r = pixel[0];
+        const g = pixel[1];
+        const b = pixel[2];
+
+        selectedColor.r = r
+        selectedColor.g = g
+        selectedColor.b = r
+        
+
+    });
+
+    function rgbToHex(r,g,b){
+
+        return "#" + [r,g,b]
+        .map(v => v.toString(16).padStart(2,"0"))
+        .join("");
+
+    }
+
+    function updateColor(){
+
+        if(!selectedColor) return;
+
+        const factor = brightness.value / 100;
+
+        const r = Math.floor(selectedColor.r * factor);
+        const g = Math.floor(selectedColor.g * factor);
+        const b = Math.floor(selectedColor.b * factor);
+
+        const hex = rgbToHex(r,g,b);
+
+        colorText.innerText = hex;
+
+        colorText.style.color = hex;
+    }
+
+    </script>
+
+</body>
+</html>

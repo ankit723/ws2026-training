@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel Key Control</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #111;
+        }
+
+        input {
+            display: none;
+        }
+
+        .slider {
+            width: 600px;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slides {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.4s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .controls label {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: white;
+            cursor: pointer;
+        }
+
+        /* movement */
+
+        #slide1:checked ~ .slider .slides {
+            transform: translateX(0%);
+        }
+
+        #slide2:checked ~ .slider .slides {
+            transform: translateX(-100%);
+        }
+
+        #slide3:checked ~ .slider .slides {
+            transform: translateX(-200%);
+        }
+
+        /* active button */
+
+        #slide1:checked ~ .slider .controls label:nth-child(1),
+        #slide2:checked ~ .slider .controls label:nth-child(2),
+        #slide3:checked ~ .slider .controls label:nth-child(3) {
+            background: red;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <input type="radio" name="slider" id="slide1" checked>
+    <input type="radio" name="slider" id="slide2">
+    <input type="radio" name="slider" id="slide3">
+
+    <div class="slider">
+
+        <div class="slides">
+
+            <div class="slide">
+                <img src="./media/images/1.jpg">
+            </div>
+
+            <div class="slide">
+                <img src="./media/images/2.jpg">
+            </div>
+
+            <div class="slide">
+                <img src="./media/images/3.jpg">
+            </div>
+
+        </div>
+
+        <div class="controls">
+            <label for="slide1"></label>
+            <label for="slide2"></label>
+            <label for="slide3"></label>
+        </div>
+
+    </div>
+
+    <script>
+
+        const slides = [
+            document.getElementById("slide1"),
+            document.getElementById("slide2"),
+            document.getElementById("slide3")
+        ];
+
+        let current = 0;
+
+        document.addEventListener("keydown", (e) => {
+
+            if (e.key === "ArrowRight") {
+                current = (current + 1) % slides.length;
+                slides[current].checked = true;
+            }
+
+            if (e.key === "ArrowLeft") {
+                current = (current - 1 + slides.length) % slides.length;
+                slides[current].checked = true;
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

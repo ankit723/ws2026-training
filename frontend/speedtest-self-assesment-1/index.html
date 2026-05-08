@@ -6,10 +6,20 @@
     <title>Document</title>
 </head>
 <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
     body{
         width: 100vw;
         height: 100vh;
         background-color: whitesmoke;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
     }
 
     .card {
@@ -17,15 +27,34 @@
         height: 200px;
         background-color: white;
         border: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .card a{
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        font-size: 30px;
     }
 
     .card:hover{
         box-shadow: 2px black;
     }
 
-    
+
 </style>
 <body>
-    
+    <div class="card"><a href="/03_module_a/3d-wave/index.html">3D-Wave</a></div>
+    <div class="card"><a href="/03_modulea_a/accessibility/resolved/index.html">Accessibility</a></div>
+    <div class="card"><a href="/03_modulea_a/asynchronous-calculation/media/index.html">Async Calulation</a></div>
+    <div class="card"><a href="/03_modulea_a/carousel-key-control/index.html">Carousel Key control</a></div>
+    <div class="card"><a href="/03_modulea_a/color-wheel/index.html">Color Wheel</a></div>
+    <div class="card"><a href="/03_modulea_a/dashboard-layout/media/index.html">Dashboard</a></div>
+    <div class="card"><a href="/03_modulea_a/digital-display-board/resource/index.html">Digital Display</a></div>
+    <div class="card"><a href="/03_modulea_a/image-mosaic/index.html">Image Mosaic</a></div>
+    <div class="card"><a href="/03_modulea_a/loading-animation/index.html">Loading Animation</a></div>
 </body>
 </html>
