@@ -1,0 +1,73 @@
+/********************************/
+/* Please write your code here. */
+/********************************/
+
+body{
+    overflow-x: hidden;
+}
+
+
+#section1{
+    display: flex;
+    justify-content: center;
+}
+
+#section1 .box{
+    position: sticky;
+    top: 100px;
+
+    height: 20vh;
+    overflow-x: hidden;
+}
+
+#section1 .box{
+    animation: shrink linear forwards;
+
+    animation-timeline: view();
+
+    animation-range: entry 0% cover 100%;
+}
+
+
+@keyframes shrink{
+    from{
+        width: 100%;
+    }
+
+    to{
+        width: 0%;
+        border-radius: 30px;
+    }
+}
+
+
+#section2 {
+    height: 300vh;
+}
+
+#section2 .item{
+    position: sticky;
+    top: 0;
+}
+
+#section2 .item{
+
+    animation: horizontal linear forwards;
+
+    animation-timeline: view();
+
+    animation-range: entry 0% cover 100%;
+}
+
+
+@keyframes horizontal{
+
+    from{
+        transform: translateX(0);
+    }
+
+    to{
+        transform: translateX(-200vw);
+    }
+
+}

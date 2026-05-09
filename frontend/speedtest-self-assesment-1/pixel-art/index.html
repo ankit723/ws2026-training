@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel to Image</title>
+</head>
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    body{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #e9e9e9;
+    }
+
+    canvas{
+        border:2px solid white;
+        background:white;
+        cursor:crosshair;
+    }
+</style>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <input type="color" name="color" id="color">
+    <button id="copy">Copy</button>
+
+    <script>
+        const canvas = document.getElementById("canvas")
+        const ctx = canvas.getContext("2d");
+        const colorint = document.getElementById("color")
+        const btn = document.getElementById("copy")
+        let color = "#000000"
+
+        async function copyToClipboard(text) {
+            try {
+                await navigator.clipboard.writeText(text);
+                alert('Text copied to clipboard!');
+            } catch (err) {
+                alert('Failed to copy: ', err);
+            }
+        }
+
+        btn.addEventListener("click", (e)=>{
+            const shadows = pixels.map(pixel => {
+                return `${pixel.x}px ${pixel.y}px 0 0 ${pixel.color}`;
+            });
+            copyToClipboard(`box-shadow: ${shadows.join(", ")};`)
+            window.location.replace("./result.html")
+        })
+
+        colorint.addEventListener("change", (e)=>{
+            color = e.target.value;
+        })
+
+        canvas.width = 500;
+        canvas.height = 500;
+
+        const GRID_SIZE = 15
+
+        let isDrawing = false;
+
+        const pixels = [];
+
+        for(let x = 0; x < canvas.width; x+=GRID_SIZE){
+            ctx.beginPath();
+            ctx.moveTo(x, 0)
+            ctx.lineTo(x, canvas.height);
+            ctx.stroke();
+        }
+        
+        for(let y = 0; y <= canvas.height; y += GRID_SIZE){
+            ctx.beginPath();
+            ctx.moveTo(0, y);
+            ctx.lineTo(canvas.width, y);
+            ctx.stroke();
+        }
+
+        function draw(e){
+            const gridX = Math.floor(e.offsetX / GRID_SIZE);
+            const gridY = Math.floor(e.offsetY / GRID_SIZE);
+
+            const cellX = gridX * GRID_SIZE;
+            const cellY = gridY * GRID_SIZE;
+
+            console.log(gridX, gridY)
+
+            ctx.fillStyle = color
+            ctx.fillRect(cellX, cellY, GRID_SIZE, GRID_SIZE);
+
+            pixels.push({
+                x: cellX,
+                y: cellY,
+                color: color
+            });
+        }
+
+        canvas.addEventListener("mousedown", (e)=>{
+            isDrawing = true
+            draw(e)
+        })
+
+        canvas.addEventListener("mousemove",(e)=>{
+            if(!isDrawing) return;
+            draw(e);
+        });
+
+        canvas.addEventListener("mouseup",()=>{
+
+            isDrawing = false;
+
+        });
+
+        
+
+    </script>
+</body>
+</html>
