@@ -64,7 +64,7 @@
         canvas.width = 500;
         canvas.height = 500;
 
-        const GRID_SIZE = 15
+        const GRID_SIZE = 20
 
         let isDrawing = false;
 
@@ -85,13 +85,9 @@
         }
 
         function draw(e){
-            const gridX = Math.floor(e.offsetX / GRID_SIZE);
-            const gridY = Math.floor(e.offsetY / GRID_SIZE);
+            const cellX = Math.floor(e.offsetX/GRID_SIZE)*GRID_SIZE;
+            const cellY = Math.floor(e.offsetY/GRID_SIZE)*GRID_SIZE;
 
-            const cellX = gridX * GRID_SIZE;
-            const cellY = gridY * GRID_SIZE;
-
-            console.log(gridX, gridY)
 
             ctx.fillStyle = color
             ctx.fillRect(cellX, cellY, GRID_SIZE, GRID_SIZE);

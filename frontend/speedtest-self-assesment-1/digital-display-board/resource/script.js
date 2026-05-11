@@ -24,7 +24,7 @@ function renderMatrixText(text){
     tempCtx.fillStyle = "white";
 
     // VERY IMPORTANT
-    tempCtx.font = "bold 180px Arial";
+    tempCtx.font = "  bold 180px Arial";
 
     tempCtx.textAlign = "center";
     tempCtx.textBaseline = "middle";
